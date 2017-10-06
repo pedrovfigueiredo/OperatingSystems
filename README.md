@@ -1,2 +1,2 @@
 # OperatingSystems
-Repository for allocating Operating Systems projects of 2017.1 semester of the Computer Engineering course at Federal University of Paraiba.
+Repository for allocating the first project of the Operating Systems course at Federal University of Paraiba.
