@@ -6,7 +6,7 @@
 //  Copyright © 2017 Lavid. All rights reserved.
 //
 
-#include "fcfs.hpp"
+#include "../Headers/fcfs.hpp"
 
 FCFS::FCFS(std::vector<Processo*> processos):
 AlgoritmoDeEscalonamento(processos){}
@@ -20,9 +20,12 @@ void FCFS::escalonaProcessos(){
         processo->resetarTempos();
     
     for (auto processo : processos_) {
+        if(processo->getTempoDeChegada() > tempoDecorrido)
+            tempoDecorrido = processo->getTempoDeChegada();
+        
         processo->tempoDeResposta_ = tempoDecorrido - processo->getTempoDeChegada();
         processo->tempoDeEspera_ = tempoDecorrido - processo->getTempoDeChegada();
-        processo->tempoDeRetorno_ = tempoDecorrido + processo->getDuracao();
+        processo->tempoDeRetorno_ = tempoDecorrido + processo->getDuracao() - processo->getTempoDeChegada();
         processo->estadoAtual = Processo::Estado::Finalizado;
         tempoDecorrido += processo->getDuracao();
     }

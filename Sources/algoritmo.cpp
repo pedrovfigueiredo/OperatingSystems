@@ -6,8 +6,7 @@
 //  Copyright © 2017 Lavid. All rights reserved.
 //
 
-#include "algoritmo.hpp"
-#include <algorithm>
+#include "../Headers/algoritmo.hpp"
 
 bool tempoDeChegada(Processo* a, Processo* b){
     return a->getTempoDeChegada() < b->getTempoDeChegada();
@@ -38,8 +37,8 @@ void AlgoritmoDeEscalonamento::computarTemposMedios(){
     tempoDeEsperaMedio_ = tempoDeEspera / processos_size;
 }
 
-double AlgoritmoDeEscalonamento::getTempoDeRetornoMedio(){return tempoDeRetornoMedio_;}
+float AlgoritmoDeEscalonamento::getTempoDeRetornoMedio(){return tempoDeRetornoMedio_;}
 
-double AlgoritmoDeEscalonamento::getTempoDeRespostaMedio(){return tempoDeRespostaMedio_;}
+float AlgoritmoDeEscalonamento::getTempoDeRespostaMedio(){return tempoDeRespostaMedio_;}
 
-double AlgoritmoDeEscalonamento::getTempoDeEsperaMedio(){return tempoDeEsperaMedio_;}
+float AlgoritmoDeEscalonamento::getTempoDeEsperaMedio(){return tempoDeEsperaMedio_;}

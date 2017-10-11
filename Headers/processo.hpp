@@ -20,9 +20,9 @@ public:
     int getDuracao();
     void resetarTempos();
     
-    double tempoDeRetorno_ = 0;
-    double tempoDeResposta_ = -1;
-    double tempoDeEspera_ = 0;
+    float tempoDeRetorno_ = 0;
+    float tempoDeResposta_ = -1;
+    float tempoDeEspera_ = 0;
     Estado estadoAtual = Criado;
     
     // Round Robin

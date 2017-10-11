@@ -22,9 +22,9 @@ public:
     
     virtual void escalonaProcessos() = 0;
     
-    double getTempoDeRetornoMedio();
-    double getTempoDeRespostaMedio();
-    double getTempoDeEsperaMedio();
+    float getTempoDeRetornoMedio();
+    float getTempoDeRespostaMedio();
+    float getTempoDeEsperaMedio();
     
 protected:
     void computarTemposMedios();
@@ -32,9 +32,9 @@ protected:
     std::vector<Processo*> processos_;
 
 private:
-    double tempoDeRetornoMedio_ = 0;
-    double tempoDeRespostaMedio_ = 0;
-    double tempoDeEsperaMedio_ = 0;
+    float tempoDeRetornoMedio_ = 0;
+    float tempoDeRespostaMedio_ = 0;
+    float tempoDeEsperaMedio_ = 0;
     
 };
 

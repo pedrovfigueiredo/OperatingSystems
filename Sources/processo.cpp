@@ -6,7 +6,7 @@
 //  Copyright © 2017 Lavid. All rights reserved.
 //
 
-#include "processo.hpp"
+#include "../Headers/processo.hpp"
 
 Processo::Processo(int tempoDeChegada, int duracao):
 tempoDeChegada_(tempoDeChegada),

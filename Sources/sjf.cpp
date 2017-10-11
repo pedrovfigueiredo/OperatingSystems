@@ -5,7 +5,7 @@
 //  Copyright © 2017 Lavid. All rights reserved.
 //
 
-#include "sjf.hpp"
+#include "../Headers/sjf.hpp"
 
 SJF::SJF(std::vector<Processo*> processos):
 AlgoritmoDeEscalonamento(processos){}
@@ -18,13 +18,18 @@ bool duracao(Processo* a, Processo* b){
 
 void SJF::escalonaProcessos(){
     int tempoDecorrido = 0;
+    std::size_t nProcessos = processos_.size();
     std::vector<Processo*> filaDeProntos;
     
     for(auto processo : processos_)
         processo->resetarTempos();
     
-    do{
+    while(nProcessos--){
+        
         for (auto processo : processos_){
+            if(filaDeProntos.empty() && processo->getTempoDeChegada() > tempoDecorrido)
+                tempoDecorrido = processo->getTempoDeChegada();
+            
             if (processo->getTempoDeChegada() <= tempoDecorrido && (std::find(filaDeProntos.begin(), filaDeProntos.end(), processo) == filaDeProntos.end()) && processo->estadoAtual != Processo::Estado::Finalizado){
                 filaDeProntos.push_back(processo);
                 processo->estadoAtual = Processo::Estado::Executando;
@@ -39,11 +44,11 @@ void SJF::escalonaProcessos(){
         
         processoAtual->tempoDeEspera_ = tempoDecorrido - processoAtual->getTempoDeChegada();
         processoAtual->tempoDeResposta_ = tempoDecorrido - processoAtual->getTempoDeChegada();
-        processoAtual->tempoDeRetorno_ = tempoDecorrido + processoAtual->getDuracao();
+        processoAtual->tempoDeRetorno_ = tempoDecorrido + processoAtual->getDuracao() - processoAtual->getTempoDeChegada();
         processoAtual->estadoAtual = Processo::Estado::Finalizado;
         
         tempoDecorrido += processoAtual->getDuracao();
-    }while(!filaDeProntos.empty());
+    }
     
     computarTemposMedios();
 }
