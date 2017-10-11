@@ -55,8 +55,7 @@ void RoundRobin::escalonaProcessos(){
         if (processoAtual->tempoDeResposta_ == -1)
             processoAtual->tempoDeResposta_ = tempoDecorrido - processoAtual->getTempoDeChegada();
         
-        // If para caso em que a diferença entre duração e tempoExecutando é 0
-        if(processoAtual->getDuracao() != processoAtual->tempoExecutando)
+        if( processoAtual->tempoExecutando > processoAtual->getDuracao())
             tempoDecorrido += std::min(this->quantum_, std::abs((processoAtual->getDuracao() - processoAtual->tempoExecutando)));
         else
             tempoDecorrido += this->quantum_;
