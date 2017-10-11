@@ -1,7 +1,7 @@
 # SchedulingProcesses
 Repository for allocating the first project of the Operating Systems course at Federal University of Paraiba.
 
-##Implemented Algorithms
+## Implemented Algorithms
 * First Come, First Served (FCFS)
 * Shortest Job First (SJF)
 * Round Robin (RR)
@@ -9,7 +9,7 @@ Repository for allocating the first project of the Operating Systems course at F
 The output is composed by measurements of efficiency for each of the algorithms implemented.
 It's displayed the average of return time, response time and wait time for a given input.
 
-##Compiling and Running:
+## Compiling and Running:
 
 To compile, just run the command:
 
@@ -20,13 +20,13 @@ make
 To run the executable:
 
 ```bash
-./escalonador "PATH_TO_INPUT_FILE.txt"
+./escalonador PATH_TO_INPUT_FILE.txt
 ```
 
-##Example of output:
+## Example of output:
 
 ```bash
-./escalonador "Instances/ex1.txt"
+./escalonador Instances/ex1.txt
 ```
 
     FCFS 30.5 19.5 19.5
